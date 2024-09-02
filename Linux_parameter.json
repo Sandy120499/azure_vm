@@ -1,0 +1,74 @@
+{
+  "location": {
+    "value": "centralindia"
+  },
+  "serverName": {
+    "value": "Linux-Server1"
+  },
+  "serverOS": {
+    "value": "Canonical"
+  },
+  "serveroffer": {
+    "value": "UbuntuServer"
+  },
+  "serversku": {
+    "value": "18.04-LTS"
+  },
+  "serverversion": {
+    "value": "latest"
+  },
+  "serverSize": {
+    "value": "Standard_B2s"
+  },
+  "osDiskSize": {
+    "value": 32
+  },
+  "osDiskType": {
+    "value": "Standard_LRS"
+  },
+  "nicname": {
+    "value": "network-Interface"
+  },
+  "publicipname": {
+    "value": "public-Ip"
+  },
+  "vnetName": {
+    "value": "vnet-new"
+  },
+  "vnetCidrRange": {
+    "value": "190.20.0.0/16"
+  },
+  "subnetName": {
+    "value": "subnet-new1"
+  },
+  "subnetCidrRange": {
+    "value": "190.20.9.0/24"
+  },
+  "publicIpSku": {
+    "value": "Standard"
+  },
+  "nsgName": {
+    "value": "nsg-Group"
+  },
+  "allowedPorts": {
+    "value": [22, 80]
+  },
+  "deniedPorts": {
+    "value": [3389]
+  },
+  "adminUsername": {
+    "value": "azureuser"
+  },
+  "adminPassword": {
+    "value": "Arthana@1234"
+  },
+  "keypairName": {
+    "value": "keypair"
+  },
+  "authenticationType": {
+    "value": "password"
+  },
+  "securityType": {
+    "value": "Standard"
+  }
+}
