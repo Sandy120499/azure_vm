@@ -3,7 +3,7 @@
     "value": "centralindia"
   },
   "serverName": {
-    "value": "Linux-Server1"
+    "value": "Linux-sandy"
   },
   "serverOS": {
     "value": "Canonical"
@@ -60,7 +60,7 @@
     "value": "azureuser"
   },
   "adminPassword": {
-    "value": "Arthana@1234"
+    "value": "Sandy@1234"
   },
   "keypairName": {
     "value": "keypair"
