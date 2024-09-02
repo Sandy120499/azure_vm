@@ -26,11 +26,11 @@ stages:
       name: RunPreflightValidation
       displayName: Run Preflight Validation
       inputs:
-        azureSubscription: 'azure_svc'
+        azureSubscription: 'sandy_svc'
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
         inlineScript: |
-          az deployment group validate --resource-group Test1-RG \
+          az deployment group validate --resource-group sandy-RG \
           --template-file main.bicep \
           --parameters @Linux_parameter.json
 
@@ -43,11 +43,11 @@ stages:
       name: Deploy
       displayName: Deploy to Azure
       inputs:
-        azureSubscription: 'azure_svc'
+        azureSubscription: 'sandy_svc'
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
         inlineScript: |
           az deployment group create --name $(Build.BuildNumber) \
-          --resource-group Test1-RG \
+          --resource-group sandy-RG \
           --template-file main.bicep \
           --parameters @Linux_parameter.json
