@@ -1,0 +1,23 @@
+# Azure DevOps Pipeline to Install Ansible
+
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'  # Use an Ubuntu VM image for easy Ansible installation
+
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.x'    # Use Python 3.x version for Ansible installation
+      addToPath: true
+
+  - script: |
+      python -m pip install --upgrade pip
+      pip install ansible
+    displayName: 'Install Ansible'
+
+  # Optional: Check Ansible Version
+  - script: |
+      ansible --version
+    displayName: 'Check Ansible Version'
