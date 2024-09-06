@@ -3,16 +3,16 @@
     "value": "East US"
   },
   "serverName": {
-    "value": "Linux-sandy"
+    "value": "Linux-sandy1"
   },
   "serverOS": {
-    "value": "Canonical"
+    "value": "Rocky"
   },
   "serveroffer": {
-    "value": "UbuntuServer"
+    "value": "RockyLinux"
   },
   "serversku": {
-    "value": "18.04-LTS"
+    "value": "8"
   },
   "serverversion": {
     "value": "latest"
@@ -60,7 +60,7 @@
     "value": "azureuser"
   },
   "adminPassword": {
-    "value": "Sandy@1234"
+    "value": "Sandy@123456"
   },
   "keypairName": {
     "value": "keypair"
