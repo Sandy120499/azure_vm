@@ -15,7 +15,7 @@ stages:
     - script: |
         az bicep build --file main.bicep
       name: LintBicepCode
-      displayName: Run Bicep
+      displayName: Run Bicep Lint
 
 - stage: Validate
   jobs:
@@ -33,4 +33,3 @@ stages:
           az deployment group validate --resource-group sandy-RG \
           --template-file main.bicep \
           --parameters @Linux_parameter.json
-
