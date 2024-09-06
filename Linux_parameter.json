@@ -9,10 +9,10 @@
     "value": "Canonical"
   },
   "serveroffer": {
-    "value": "UbuntuServer"
+    "value": "ubuntu-24_04-lts"
   },
   "serversku": {
-    "value": "18.04-LTS"
+    "value": "server"
   },
   "serverversion": {
     "value": "latest"
