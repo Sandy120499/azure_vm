@@ -12,7 +12,7 @@
     "value": "UbuntuServer"
   },
   "serversku": {
-    "value": "20.04-LTS"  // Updated SKU to a commonly available version
+    "value": "18.04-LTS"
   },
   "serverversion": {
     "value": "latest"
