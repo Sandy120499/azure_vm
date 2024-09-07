@@ -47,7 +47,28 @@ stages:
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
         inlineScript: |
-          az deployment group create --name $(Build.BuildNumber) \
+          az deployment group create --name $(Build.BuildId) \
           --resource-group sandy-RG \
           --template-file main.bicep \
           --parameters @Linux_parameter.json
+
+    # Task to capture the public IP after deployment
+    - task: AzureCLI@2
+      name: CapturePublicIP
+      displayName: Capture Public IP
+      inputs:
+        azureSubscription: 'sandy-svc'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          PUBLIC_IP=$(az network public-ip show --resource-group sandy-RG --name $(publicipname) --query ipAddress -o tsv)
+          echo "##vso[task.setvariable variable=PUBLIC_IP]$PUBLIC_IP"
+
+    # Add Public IP to Ansible inventory
+    - task: Bash@3
+      displayName: Update Ansible Inventory
+      inputs:
+        targetType: 'inline'
+        script: |
+          echo "$PUBLIC_IP ansible_user=azureuser ansible_password=Sandy@123456" >> hosts
+          cat hosts
