@@ -3,7 +3,7 @@
     "value": "East US"
   },
   "serverName": {
-    "value": "Linux-Server1"
+    "value": "Linux-sandy"
   },
   "serverOS": {
     "value": "Canonical"
@@ -12,10 +12,10 @@
     "value": "UbuntuServer"
   },
   "serversku": {
-    "value": "24.04-LTS"
+    "value": "20.04-LTS"
   },
   "serverversion": {
-    "value": "latest"
+    "value": "202309.1.0"  // Example version
   },
   "serverSize": {
     "value": "Standard_B2s"
@@ -60,7 +60,7 @@
     "value": "azureuser"
   },
   "adminPassword": {
-    "value": "Sandy@123456"
+    "value": "Sandy@1234"
   },
   "keypairName": {
     "value": "keypair"
