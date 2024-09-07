@@ -1,18 +1,18 @@
 {
   "location": {
-    "value": "East US"
+    "value": "centralindia"
   },
   "serverName": {
-    "value": "Linux-sandy"
+    "value": "Linux-Server"
   },
   "serverOS": {
     "value": "Canonical"
   },
   "serveroffer": {
-    "value": "ubuntu-24_04-lts"
+    "value": "UbuntuServer"
   },
   "serversku": {
-    "value": "server"
+    "value": "18.04-LTS"
   },
   "serverversion": {
     "value": "latest"
@@ -60,7 +60,7 @@
     "value": "azureuser"
   },
   "adminPassword": {
-    "value": "Sandy@1234"
+    "value": "Sandy@123456"
   },
   "keypairName": {
     "value": "keypair"
