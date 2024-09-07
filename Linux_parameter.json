@@ -8,14 +8,14 @@
   "serverOS": {
     "value": "Canonical"
   },
-  "serverOffer": {
+  "serveroffer": {
     "value": "UbuntuServer"
   },
-  "serverSku": {
+  "serversku": {
     "value": "20.04-LTS"
   },
-  "serverVersion": {
-    "value": "latest"  // Use "latest" or specify a valid version if needed
+  "serverversion": {
+    "value": "202309.1.0"  // Example version
   },
   "serverSize": {
     "value": "Standard_B2s"
@@ -26,10 +26,10 @@
   "osDiskType": {
     "value": "Standard_LRS"
   },
-  "nicName": {
+  "nicname": {
     "value": "network-Interface"
   },
-  "publicIpName": {
+  "publicipname": {
     "value": "public-Ip"
   },
   "vnetName": {
