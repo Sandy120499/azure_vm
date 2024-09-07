@@ -15,7 +15,7 @@
     "value": "20.04-LTS"
   },
   "serverVersion": {
-    "value": "latest"
+    "value": "latest"  // Use "latest" or specify a valid version if needed
   },
   "serverSize": {
     "value": "Standard_B2s"
