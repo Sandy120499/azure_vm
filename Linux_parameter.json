@@ -3,7 +3,7 @@
     "value": "East US"
   },
   "serverName": {
-    "value": "Linux-Server"
+    "value": "Linux-Server1"
   },
   "serverOS": {
     "value": "Canonical"
@@ -12,7 +12,7 @@
     "value": "UbuntuServer"
   },
   "serversku": {
-    "value": "18.04-LTS"
+    "value": "24.04-LTS"
   },
   "serverversion": {
     "value": "latest"
