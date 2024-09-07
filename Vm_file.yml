@@ -22,12 +22,32 @@ stages:
   - job: ValidateBicepCode
     displayName: Validate Bicep Code
     steps:
-    # Retrieve public IP and add it to the Ansible inventory directly
-    - task: Bash@3
-      displayName: Retrieve Public IP and Update Ansible Inventory
+    - task: AzureCLI@2
+      name: RunPreflightValidation
+      displayName: Run Preflight Validation
       inputs:
-        targetType: 'inline'
-        script: |
-          PUBLIC_IP=$(az network public-ip show --resource-group sandy-RG --name public-Ip --query ipAddress -o tsv)
-          echo "$PUBLIC_IP ansible_user=azureuser ansible_password=Sandy@1234" >> inventory
-          cat inventory
+        azureSubscription: 'sandy-svc'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az deployment group validate --resource-group sandy-RG \
+          --template-file main.bicep \
+          --parameters @Linux_parameter.json
+
+- stage: Deploy
+  jobs:
+  - job: Deploy
+    displayName: Deploy to Azure
+    steps:
+    - task: AzureCLI@2
+      name: DeployBicepTemplate
+      displayName: Deploy Bicep Template
+      inputs:
+        azureSubscription: 'sandy-svc'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az deployment group create --name $(Build.BuildId) \
+          --resource-group sandy-RG \
+          --template-file main.bicep \
+          --parameters @Linux_parameter.json
