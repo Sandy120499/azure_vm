@@ -9,13 +9,13 @@
     "value": "Canonical"
   },
   "serveroffer": {
-    "value": "UbuntuServer"
+    "value": "0001-com-ubuntu-server-jammy"
   },
   "serversku": {
-    "value": "20.04-LTS"
+    "value": "22_04-lts-gen2"
   },
   "serverversion": {
-    "value": "202309.1.0"  // Example version
+    "value": "latest"
   },
   "serverSize": {
     "value": "Standard_B2s"
