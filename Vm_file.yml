@@ -22,53 +22,12 @@ stages:
   - job: ValidateBicepCode
     displayName: Validate Bicep Code
     steps:
-    - task: AzureCLI@2
-      name: RunPreflightValidation
-      displayName: Run Preflight Validation
-      inputs:
-        azureSubscription: 'sandy-svc'
-        scriptType: 'bash'
-        scriptLocation: 'inlineScript'
-        inlineScript: |
-          az deployment group validate --resource-group sandy-RG \
-          --template-file main.bicep \
-          --parameters @Linux_parameter.json
-
-- stage: Deploy
-  jobs:
-  - job: Deploy
-    displayName: Deploy to Azure
-    steps:
-    - task: AzureCLI@2
-      name: DeployBicepTemplate
-      displayName: Deploy Bicep Template
-      inputs:
-        azureSubscription: 'sandy-svc'
-        scriptType: 'bash'
-        scriptLocation: 'inlineScript'
-        inlineScript: |
-          az deployment group create --name $(Build.BuildId) \
-          --resource-group sandy-RG \
-          --template-file main.bicep \
-          --parameters @Linux_parameter.json
-
-    # Task to capture the public IP after deployment
-    - task: AzureCLI@2
-      name: CapturePublicIP
-      displayName: Capture Public IP
-      inputs:
-        azureSubscription: 'sandy-svc'
-        scriptType: 'bash'
-        scriptLocation: 'inlineScript'
-        inlineScript: |
-          PUBLIC_IP=$(az network public-ip show --resource-group sandy-RG --name $(publicipname) --query ipAddress -o tsv)
-          echo "##vso[task.setvariable variable=PUBLIC_IP]$PUBLIC_IP"
-
-    # Add Public IP to Ansible inventory
+    # Retrieve public IP and add it to the Ansible inventory directly
     - task: Bash@3
-      displayName: Update Ansible Inventory
+      displayName: Retrieve Public IP and Update Ansible Inventory
       inputs:
         targetType: 'inline'
         script: |
-          echo "$PUBLIC_IP ansible_user=azureuser ansible_password=Sandy@123456" >> hosts
-          cat hosts
+          PUBLIC_IP=$(az network public-ip show --resource-group sandy-RG --name public-Ip --query ipAddress -o tsv)
+          echo "$PUBLIC_IP ansible_user=azureuser ansible_password=Sandy@1234" >> inventory
+          cat inventory
